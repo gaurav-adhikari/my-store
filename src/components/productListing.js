@@ -8,9 +8,7 @@ import ProductComponent from './productComponent';
 function ProductListing() {
 
   const products = useSelector((state) => state);
-  const [isLoading, setisLoading] = useState(true);
-
-  console.log("products: ", products)
+  const [isLoading, setisLoading] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -20,8 +18,7 @@ function ProductListing() {
       catch((err) => console.log(err))
 
     dispatch(setProducts(response.data));
-    setisLoading(false);
-    console.log(response);
+    // setisLoading(false);
   }
 
   useEffect(() => {
@@ -31,7 +28,9 @@ function ProductListing() {
 
   return (
     <div>
-      {isLoading ? <span><LoadingComponent /></span> : <ProductComponent />}
+      {isLoading ?
+        <span><LoadingComponent /></span>
+        : <ProductComponent />}
     </div>
   )
 }
