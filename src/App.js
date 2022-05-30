@@ -16,7 +16,7 @@ class App extends Component {
         <Header />
         <Switch>
           <Route path="/" exact component={ProductListing}></Route>
-          <Route path="product/:productId" exact component={ProductDetail}></Route>
+          <Route path="/product/:productId" exact component={ProductDetail}></Route>
           <Route>404 Not found</Route>
         </Switch>
       </Router>
